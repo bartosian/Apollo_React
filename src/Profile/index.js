@@ -1,5 +1,6 @@
 import React from 'react';
 import gql from 'graphql-tag';
+import RepositoryList from '../Repository';
 import { Query } from 'react-apollo';
 
 
@@ -48,11 +49,8 @@ const Profile = () => (
                 return <div>Loading ...</div>;
             }
 
-            return (
-                <div>
-                    {viewer.name} {viewer.login}
-                </div>
-            );
+            return <RepositoryList repositories={viewer.repositories} />;
+
         }}
     </Query>
 );
